@@ -1,0 +1,27 @@
+GetBerriesByFlavorIntent {flavor}
+GetBerriesByFlavorIntent {flavor} flavor
+GetBerriesByFlavorIntent {flavor} berries
+GetBerriesByFlavorIntent what berries are {flavor} flavor
+GetBerriesByFlavorIntent what berries are {flavor}
+GetBerriesByFlavorIntent which berries are {flavor} flavor
+GetBerriesByFlavorIntent which berries are {flavor}
+GetBerriesByFlavorIntent What are the {flavor} berries
+GetBerriesByFlavorIntent which berries are {flavor}
+
+GetBerriesByCategoryIntent {category}
+GetBerriesByCategoryIntent {category} category
+GetBerriesByCategoryIntent {category} berries
+GetBerriesByCategoryIntent which berries support {category}
+GetBerriesByCategoryIntent what berries support {category}
+GetBerriesByCategoryIntent what berries are for {category}
+GetBerriesByCategoryIntent berries that increase {category}
+GetBerriesByCategoryIntent berries that influence {category}
+
+
+AMAZON.StartOverIntent Restart
+AMAZON.StartOverIntent Start Over
+AMAZON.StartOverIntent Repeat
+
+AMAZON.HelpIntent Help
+
+AMAZON.StopIntent Stop

@@ -126,60 +126,60 @@ function getBerriesByFlavor(intent, session, callback) {
          buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
 }
 
-// function getBerriesByCategory(intent, session, callback) {
-//     const cardTitle = intent.name;
-//     const categorySlot = intent.slots.category;
-//     let repromptText = '';
-//     let sessionAttributes = {};
-//     let shouldEndSession = false;
-//     let speechOutput = '';
+function getBerriesByCategory(intent, session, callback) {
+    const cardTitle = intent.name;
+    const categorySlot = intent.slots.category;
+    let repromptText = '';
+    let sessionAttributes = {};
+    let shouldEndSession = false;
+    let speechOutput = '';
 
-//     var category = categorySlot.value;
-//     var categoryInfo = { 
-//         "smart": {
-//             "flavor": "bitter",
-//             "berries": ["rawst", "lum", "nanab", "aguav", "haban", "jaboca"]    
-//         },
-//         "cool": {
-//             "flavor": "spicy",
-//             "berries": ["cheri", "leppa", "figy", "pinap", "tanga", "enigma"]
-//         },
-//         "cute": {
-//             "flavor": "sweet",
-//             "berries": ["pecha", "persim", "mago", "bluk", "kasib", "custap"]
-//         },
-//         "beauty": {
-//             "flavor": "dry",
-//             "berries": ["chesto", "oran", "wiki", "pamtre", "charti", "micle"]
-//         },
-//         "tough": {
-//             "flavor": "sour",
-//             "berries": ["aspear", "sitrus", "iapapa", "wepear", "colbur", "rowap"]
-//         }
-//     };   
+    var category = categorySlot.value;
+    var categoryInfo = { 
+        "smartness": {
+            "flavor": "bitter",
+            "berries": ["rawst", "lum", "nanab", "aguav", "haban", "jaboca"]    
+        },
+        "coolness": {
+            "flavor": "spicy",
+            "berries": ["cheri", "leppa", "figy", "pinap", "tanga", "enigma"]
+        },
+        "cuteness": {
+            "flavor": "sweet",
+            "berries": ["pecha", "persim", "mago", "bluk", "kasib", "custap"]
+        },
+        "beauty": {
+            "flavor": "dry",
+            "berries": ["chesto", "oran", "wiki", "pamtre", "charti", "micle"]
+        },
+        "toughness": {
+            "flavor": "sour",
+            "berries": ["aspear", "sitrus", "iapapa", "wepear", "colbur", "rowap"]
+        }
+    };   
 
-//     if (categoryInfo[category]) {
+    if (categoryInfo[category]) {
 
-//         var berries = "";
-//         for (var i = 0; i < 6; i++) { 
-//             if (i != 5) { 
-//                 berries += categoryInfo[category]["berries"][i] + ", "; 
-//             } else { 
-//                 berries += "and " + categoryInfo[category]["berries"][i]; 
-//             } 
-//         }               
+        var berries = "";
+        for (var i = 0; i < 6; i++) { 
+            if (i != 5) { 
+                berries += categoryInfo[category]["berries"][i] + ", "; 
+            } else { 
+                berries += "and " + categoryInfo[category]["berries"][i]; 
+            } 
+        }               
 
-//         speechOutput = `Here are the berries that support ${category}-ness.  ${berries}.`
-//         shouldEndSession = true;
-//     } else {
-//         speechOutput = "Hm, I couldn't find the category you asked for. Please try again.";
-//         repromptText = "I'm not sure what category you're asking for. You can ask for a different " +
-//             'category by saying, for example, which berries support {category}.';
-//     }
+        speechOutput = `Here are the berries that support ${category}.  ${berries}.`;
+        shouldEndSession = true; 
+    } else {
+        speechOutput = "Hm, I couldn't find the category you asked for. Please try again.";
+        repromptText = "I'm not sure what category you're asking for. You can ask for a different " +
+            'category by saying, for example, which berries support toughness.';
+    }
 
-//     callback(sessionAttributes,
-//          buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
-// }
+    callback(sessionAttributes,
+         buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+}
 
 
 // --------------- Events -----------------------
@@ -213,8 +213,8 @@ function onIntent(intentRequest, session, callback) {
     // Dispatch to your skill's intent handlers
     if (intentName === 'GetBerriesByFlavorIntent') {
         getBerriesByFlavor(intent, session, callback);
-    // } else if (intentName === 'GetBerriesByCategoryIntent') {
-    //     getBerriesByCategory(intent, session, callback);
+    } else if (intentName === 'GetBerriesByCategoryIntent') {
+        getBerriesByCategory(intent, session, callback);
     } else if (intentName === 'AMAZON.HelpIntent') {
         getWelcomeResponse(callback);
     } else if (intentName === 'AMAZON.StopIntent' || intentName === 'AMAZON.CancelIntent') {

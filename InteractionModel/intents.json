@@ -1,0 +1,43 @@
+{
+  "intents": [
+	{
+      "intent": "GetBerriesByFlavorIntent",
+      "slots": [
+        {
+          "name": "flavor",
+          "type": "LIST_OF_FLAVORS"
+        }
+      ]
+    },
+    {
+      "intent": "GetBerriesByCategoryIntent",
+      "slots": [
+        {
+          "name": "category",
+          "type": "LIST_OF_CATEGORIES"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.StartOverIntent"
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

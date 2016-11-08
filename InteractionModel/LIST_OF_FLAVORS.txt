@@ -1,0 +1,5 @@
+bitter
+spicy
+sweet
+dry
+sour
